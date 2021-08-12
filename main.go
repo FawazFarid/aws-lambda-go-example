@@ -1,13 +1,14 @@
 package main
 
 import (
-	"log"
+	"github.com/sirupsen/logrus"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-        log.Println("This is a Golang log line, you're better off using Node logs anyway")
+        logrus.Warn("This is a Golang log line, you're better off using NodeJS logs anyway")
+	logrus.Info("Observability Rocks!")
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       "Hello AWS Lambda and Netlify",
